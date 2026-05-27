@@ -1,6 +1,17 @@
+# Terraform files
 .terraform/
+
+# State files
 *.tfstate
 *.tfstate.*
+
+# Crash logs
 crash.log
+
+# Sensitive variable files
 terraform.tfvars
-.terraform.*
+*.tfvars
+
+# CLI config files
+.terraformrc
+terraform.rc
