@@ -3,6 +3,7 @@ variable "rgdetails" {
   type = map(object({
     rg_name  = string
     location = string
-    tags     = map(string)
+    managed_by  = optional(string)
+    tags     = optional(map(string))
   }))
 }
