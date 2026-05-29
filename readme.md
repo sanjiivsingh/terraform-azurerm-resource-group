@@ -65,13 +65,12 @@ resource "azurerm_resource_group" "this" {
 
 ```hcl
 variable "rgdetails" {
-
   description = "Map of Azure Resource Groups"
-
   type = map(object({
     rg_name  = string
     location = string
-    tags     = map(string)
+    managed_by  = optional(string)
+    tags     = optional(map(string))
   }))
 }
 ```
@@ -82,25 +81,21 @@ variable "rgdetails" {
 
 ```hcl
 rgdetails = {
-
   rg1 = {
-    rg_name  = "devrg1"
+    name  = "devrg1"
     location = "southindia"
-
+    managed_by = "Terraform"
     tags = {
       env  = "dev"
       app  = "web"
       team = "infra"
     }
   }
-
   rg2 = {
-    rg_name  = "devrg2"
+    name  = "devrg2"
     location = "southindia"
-
     tags = {
       env  = "dev"
-      app  = "mobile"
       team = "infra"
     }
   }
